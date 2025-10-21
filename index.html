@@ -35,6 +35,7 @@
         .status-pending { background-color: #fee2e2; color: #b91c1c; }
         .status-progress { background-color: #ffedd5; color: #c2410c; }
         .status-done { background-color: #dcfce7; color: #166534; }
+        .status-info { background-color: #dbeafe; color: #1d4ed8; }
     </style>
 </head>
 <body class="bg-slate-100">
@@ -129,7 +130,7 @@
                     </ul>`
             },
             'v1.1': {
-                lastUpdated: '2025-08-14',
+                lastUpdated: '2025-10-21',
                 situation: `
                     <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Situation</h2>
                     <div class="space-y-4 text-gray-700">
@@ -146,36 +147,99 @@
                 execution: `
                     <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Execution (Roadmap-Aligned)</h2>
                     <p class="text-gray-600 mb-6">Execution will focus on optimizing existing platforms, with an emphasis on preparing for the 2026 tax season.</p>
+                    
                     <div class="border rounded-lg overflow-hidden mb-4">
-                        <div class="p-4 bg-gray-50 border-b"><h3 class="font-title text-lg font-bold">Phase 1: Foundational Technology Optimization <span class="text-sm text-gray-500 font-sans">(Q3 - Q4 2025)</span></h3></div>
-                        <div class="p-6 grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Initiatives <span class="status status-progress ml-3">In Progress</span></h4>
-                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
-                                    <li>Strategic Audit & Configuration of Karbon and Square.</li>
-                                    <li>Integration Blueprint Design.</li>
-                                    <li>Payroll Tools Implementation.</li>
-                                    <li>Configuration of Daily Reports in Square (Reconciler & Cash-Out).</li>
-                                    <li>Team Enablement and Adoption.</li>
-                                </ul>
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 1: Foundational Technology Optimization <span class="text-sm text-gray-500 font-sans">(Q3 - Q4 2025)</span></h3>
+                            <span class="status status-progress ml-3">In Progress</span>
+                        </div>
+                        
+                        <div class="p-6">
+                            
+                            <div class="grid md:grid-cols-2 gap-x-6 mb-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Key Initiatives</h4>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Key Deliverables</h4>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Deliverables</h4>
-                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
-                                    <li>Standards & Configuration Documents. <a href="https://drive.google.com/drive/folders/1RFJyOgBz3861-ZJxQOTWb62v15O73HVt?usp=sharing" target="_blank" class="text-blue-600 hover:underline text-sm">[View]</a> <span class="status status-done normal-case">Updated: 2025-10-02</span></li>
-                                    <li>Integration Blueprint. <a href="#" class="text-blue-600 hover:underline text-sm">[View]</a></li>
-                                    <li>Payroll Solution Implemented. <a href="#" class="text-blue-600 hover:underline text-sm">[View Screenshots]</a></li>
-                                    <li>Daily Reconciler & Cash-Out Report functional. <a href="#" class="text-blue-600 hover:underline text-sm">[View Template]</a></li>
-                                    <li>Trained Teams. <a href="#" class="text-blue-600 hover:underline text-sm">[View Guides]</a></li>
-                                </ul>
+                            
+                            <div class="divide-y divide-gray-200">
+                                
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Strategic Audit & Configuration of Karbon and Square.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Standards & Configuration Documents. <a href="https://drive.google.com/drive/folders/1RFJyOgBz3861-ZJxQOTWb62v15O73HVt?usp=sharing" target="_blank" class="text-blue-600 hover:underline text-sm">[View]</a> <span class="status status-info normal-case">Updated: 2025-10-21</span>
+                                            <div class="mt-2 flex flex-wrap gap-2">
+                                                <span class="status status-done normal-case">P1: Done</span>
+                                                <span class="status status-done normal-case">P2: Done</span>
+                                                <span class="status status-done normal-case">P3: Done</span>
+                                                <span class="status status-progress normal-case">P4: In Progress</span>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Integration Blueprint Design.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Integration Blueprint. <a href="#" class="text-blue-600 hover:underline text-sm">[View]</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Payroll Tools Implementation.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Payroll Solution Implemented. <a href="https://drive.google.com/drive/folders/1k-atzzOqFDlmOB08hezEc4V5Qx0YTzsZ?usp=drive_link" target="_blank" class="text-blue-600 hover:underline text-sm">[View Folder]</a> <span class="status status-progress normal-case">Starting: 2025-10-20</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Configuration of Daily Reports in Square (Reconciler & Cash-Out).</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Daily Reconciler & Cash-Out Report functional. <a href="#" class="text-blue-600 hover:underline text-sm">[View Template]</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Team Enablement and Adoption.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Trained Teams. <a href="https://drive.google.com/drive/folders/1gn75oKa8AP8EhNJwApQgJppdFnLWY31J?usp=drive_link" target="_blank" class="text-blue-600 hover:underline text-sm">[View Guides]</a> <span class="status status-info normal-case">Updated: 2025-10-21</span>
+                                        </p>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                    
                     <div class="border rounded-lg overflow-hidden mb-4">
-                        <div class="p-4 bg-gray-50 border-b"><h3 class="font-title text-lg font-bold">Phase 2: Centralization & Visibility <span class="text-sm text-gray-500 font-sans">(Q1 - Q2 2026)</span></h3></div>
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 2: Centralization & Visibility <span class="text-sm text-gray-500 font-sans">(Q1 - Q2 2026)</span></h3>
+                            <span class="status status-pending ml-3">Pending</span>
+                        </div>
                         <div class="p-6 grid md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Initiatives <span class="status status-pending ml-3">Pending</span></h4>
+                                <h4 class="font-bold text-gray-800">Key Initiatives</h4>
                                 <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
                                     <li>Unified Data Connector Development.</li>
                                     <li>Query and Reporting Solution Deployment.</li>
@@ -183,7 +247,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Deliverables</h4>
+                                <h4 class="font-bold text-gray-800">Key Deliverables</h4>
                                 <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
                                     <li>Query Solution Deployed. <a href="#" class="text-blue-600 hover:underline text-sm">[Access Tool]</a></li>
                                     <li>Live Dashboards & KPIs. <a href="#" class="text-blue-600 hover:underline text-sm">[View Dashboard]</a></li>
@@ -191,18 +255,22 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="border rounded-lg overflow-hidden">
-                        <div class="p-4 bg-gray-50 border-b"><h3 class="font-title text-lg font-bold">Phase 3: Evolution & Growth <span class="text-sm text-gray-500 font-sans">(Q3 2026+)</span></h3></div>
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 3: Evolution & Growth <span class="text-sm text-gray-500 font-sans">(Q3 2026+)</span></h3>
+                            <span class="status status-pending ml-3">Pending</span>
+                        </div>
                         <div class="p-6 grid md:grid-cols-2 gap-6">
                             <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Initiatives <span class="status status-pending ml-3">Pending</span></h4>
+                                <h4 class="font-bold text-gray-800">Key Initiatives</h4>
                                 <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
                                     <li>Business Intelligence Solution Evolution.</li>
                                     <li>Innovation Projects (LedgerBot, Marketing Bots).</li>
                                 </ul>
                             </div>
                              <div>
-                                <h4 class="font-bold text-gray-800 flex items-center">Key Deliverables</h4>
+                                <h4 class="font-bold text-gray-800">Key Deliverables</h4>
                                 <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
                                     <li>Roadmap for future BI modules (post-tax season).</li>
                                     <li>Formal kick-off of innovation projects.</li>
