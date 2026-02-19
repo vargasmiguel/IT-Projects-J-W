@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEAC Report - CTO Integration Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-title { font-family: 'Oxanium', sans-serif; }
+        .tab {
+            cursor: pointer;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .tab.active {
+            border-bottom-color: #0070c0;
+            color: #0070c0;
+            font-weight: 700;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        .status-pending { background-color: #fee2e2; color: #b91c1c; } /* Red */
+        .status-progress { background-color: #ffedd5; color: #c2410c; } /* Orange */
+        .status-done { background-color: #dcfce7; color: #166534; } /* Green */
+        .status-info { background-color: #dbeafe; color: #1d4ed8; } /* Blue */
+        .status-planned { background-color: #fefce8; color: #a16207; } /* Light Yellow */
+        .status-external { background-color: #ede9fe; color: #6d28d9; } /* Purple */
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <header class="bg-white shadow-md p-4">
+        <div class="max-w-7xl mx-auto flex justify-center items-center space-x-4 md:space-x-6">
+            <img src="https://c12742516.preview.getnetset.com/files/jwaccountingmidsized.png" alt="J&W Accounting Logo" class="h-8 md:h-10" onerror="this.style.display='none'">
+            <div class="text-center">
+                <h1 class="font-title text-xl md:text-2xl font-bold text-gray-800">SMEAC Project Dashboard</h1>
+                <p class="text-xs md:text-sm text-gray-500">CTO Integration & Process Overhaul</p>
+            </div>
+            <img src="https://mavvsmart.com/wp-content/uploads/2021/11/logo_black2.png" alt="MAVV Logo" class="h-8 md:h-10" onerror="this.style.display='none'">
+        </div>
+    </header>
+
+    <div class="bg-slate-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto flex justify-end items-center p-2 px-4 space-x-4">
+            <label for="version-select" class="text-sm font-medium text-gray-700">Version:</label>
+            <select id="version-select" class="text-sm rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></select>
+            <p id="last-updated" class="text-xs text-gray-400"></p>
+        </div>
+    </div>
+
+    <nav class="bg-white border-b border-gray-200 shadow-sm">
+        <div id="tabs-container" class="max-w-7xl mx-auto flex space-x-1 md:space-x-4 overflow-x-auto">
+            <div class="tab" onclick="changeTab('situation')">Situation</div>
+            <div class="tab" onclick="changeTab('mission')">Mission</div>
+            <div class="tab active" onclick="changeTab('execution')">Execution</div>
+            <div class="tab" onclick="changeTab('admin')">Administration</div>
+            <div class="tab" onclick="changeTab('communication')">Communication</div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+        <div id="situation-content" class="tab-content bg-white p-6 md:p-8 rounded-lg shadow"></div>
+        <div id="mission-content" class="tab-content bg-white p-6 md:p-8 rounded-lg shadow"></div>
+        <div id="execution-content" class="tab-content active bg-white p-6 md:p-8 rounded-lg shadow"></div>
+        <div id="admin-content" class="tab-content bg-white p-6 md:p-8 rounded-lg shadow"></div>
+        <div id="communication-content" class="tab-content bg-white p-6 md:p-8 rounded-lg shadow"></div>
+    </main>
+
+    <script>
+        // ===================================================================================
+        // SMEAC PROJECT DATABASE
+        // To add a new version:
+        // 1. Copy the block of the latest version (e.g., v1.1).
+        // 2. Paste it below.
+        // 3. Change the key to the new version (e.g., 'v1.2').
+        // 4. Modify the content, statuses, or links within that new block.
+        // The script will handle the rest!
+        // ===================================================================================
+        const smeacData = {
+            'v1.0': {
+                lastUpdated: '2025-08-01',
+                situation: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Situation</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>J&W Accounting currently operates with significant departmental silos. Each department functions independently, with minimal coordination or integration.</p>
+                        <p>While we have invested substantially in modern software—most notably <strong>Karbon</strong> as our primary CRM—it has not been implemented or adopted effectively. As a result, processes vary, communication is inconsistent, and technology is underutilized, causing inefficiencies and duplicated work.</p>
+                        <p>A Chief Technology Officer (CTO) is now leading a comprehensive technology-driven integration and efficiency program.</p>
+                    </div>`,
+                mission: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Mission</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>Over the course of <strong>12 months</strong>, the CTO will audit and document current processes, identify integration points, optimize usage of existing software (especially Karbon), and establish standardized, technology-enabled processes across the organization.</p>
+                        <p class="font-bold text-gray-800">End Goal: Achieve measurable increases in operational efficiency and profitability through better technology usage and cross-departmental integration.</p>
+                    </div>`,
+                execution: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Execution (Original Plan)</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p><strong>Phase 1 – Assessment:</strong> Conduct workshops, audit software, evaluate skills.</p>
+                        <p><strong>Phase 2 – Strategy & Design:</strong> Develop blueprint, standardize workflows.</p>
+                        <p><strong>Phase 3 – Implementation:</strong> Roll out upgrades, centralize tracking.</p>
+                        <p><strong>Phase 4 – Training & Adoption:</strong> Provide training, create manuals.</p>
+                        <p><strong>Phase 5 – Review & Optimization:</strong> Track KPIs, adjust processes.</p>
+                    </div>`,
+                admin: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Administration & Logistics</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Personnel:</strong> CTO (Miguel Vargas), Office Manager (Nathalie Velasquez), Department Heads & Staff.</li>
+                        <li><strong>Tools:</strong> Karbon, Proseries, Square, ADP, Accountants World, QuickBooks, etc.</li>
+                        <li><strong>Budget:</strong> CTO contract, potential software licenses, training materials.</li>
+                        <li><strong>Support Needs:</strong> Cooperation from all department leads, dedicated project time for key staff.</li>
+                    </ul>`,
+                communication: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Communication</h2>
+                     <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Overall Project Lead:</strong> CTO - Miguel Vargas.</li>
+                        <li><strong>Executive Oversight:</strong> Office Manager -> Leadership Team.</li>
+                        <li><strong>Cadence:</strong> Weekly CTO progress meetings, Monthly all-staff updates, Quarterly executive reviews.</li>
+                        <li><strong>Reporting:</strong> Centralized reporting in Karbon project dashboards and this SMEAC Dashboard.</li>
+                    </ul>`
+            },
+            'v1.1': {
+                lastUpdated: '2025-10-21',
+                situation: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Situation</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>J&W Accounting currently operates with significant departmental silos. Each department functions independently, with minimal coordination or integration.</p>
+                        <p>While we have invested substantially in modern software—most notably <strong>Karbon</strong> as our primary CRM—it has not been implemented or adopted effectively. As a result, processes vary, communication is inconsistent, and technology is underutilized, causing inefficiencies and duplicated work.</p>
+                        <p>A Chief Technology Officer (CTO) is now leading a comprehensive technology-driven integration and efficiency program.</p>
+                    </div>`,
+                mission: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Mission</h2>
+                    <div class="space-y-4 text-gray-700">
+                        <p>Over the course of <strong>12 months</strong>, the CTO will audit and document current processes, identify integration points, optimize usage of existing software (especially Karbon), and establish standardized, technology-enabled processes across the organization.</p>
+                        <p class="font-bold text-gray-800">End Goal: Achieve measurable increases in operational efficiency and profitability through better technology usage and cross-departmental integration.</p>
+                    </div>`,
+                execution: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Execution (Roadmap-Aligned)</h2>
+                    <p class="text-gray-600 mb-6">Execution will focus on optimizing existing platforms, with an emphasis on preparing for the 2026 tax season.</p>
+                    
+                    <div class="border rounded-lg overflow-hidden mb-4">
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 1: Foundational Technology Optimization <span class="text-sm text-gray-500 font-sans">(Q3 - Q4 2025)</span></h3>
+                            <span class="status status-progress ml-3">In Progress</span>
+                        </div>
+                        
+                        <div class="p-6">
+                            
+                            <div class="grid md:grid-cols-2 gap-x-6 mb-4">
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Key Initiatives</h4>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Key Deliverables</h4>
+                                </div>
+                            </div>
+                            
+                            <div class="divide-y divide-gray-200">
+                                
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Strategic Audit & Configuration of Karbon and Square.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Standards & Configuration Documents. <a href="https://drive.google.com/drive/folders/1RFJyOgBz3861-ZJxQOTWb62v15O73HVt?usp=sharing" target="_blank" class="text-blue-600 hover:underline text-sm">[View]</a> <span class="status status-info normal-case">Updated: 2025-10-24</span>
+                                            <div class="mt-2 flex flex-wrap gap-2">
+                                                <span class="status status-done normal-case">P1: Done</span>
+                                                <span class="status status-done normal-case">P2: Done</span>
+                                                <span class="status status-done normal-case">P3: Done</span>
+                                                <span class="status status-done normal-case">P4: Done</span>
+                                                <span class="status status-pending normal-case">P5: Pending Approval</span>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Integration Blueprint Design.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Integration Blueprint. <a href="#" class="text-blue-600 hover:underline text-sm">[View]</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Payroll Tools Implementation.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Payroll Solution Implemented. <a href="https://drive.google.com/drive/folders/1k-atzzOqFDlmOB08hezEc4V5Qx0YTzsZ?usp=drive_link" target="_blank" class="text-blue-600 hover:underline text-sm">[View Folder]</a> <span class="status status-info normal-case">Updated: 2025-11-04</span>
+                                            <div class="mt-2 flex flex-wrap gap-2">
+                                                <span class="status status-planned normal-case">P1: Stand By - Waiting Decision</span>
+                                                <span class="status status-external normal-case">P2: Waiting PIN Email from EFTPS IRS</span>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Configuration of Daily Reports in Square (Reconciler & Cash-Out).</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Daily Reconciler & Cash-Out Report functional. <a href="#" class="text-blue-600 hover:underline text-sm">[View Template]</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="grid md:grid-cols-2 gap-x-6 gap-y-2 py-4 first:pt-0 last:pb-0">
+                                    <div>
+                                        <p class="text-gray-700">Team Enablement and Adoption.</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700">
+                                            Trained Teams. <a href="https://drive.google.com/drive/folders/1gn75oKa8AP8EhNJwApQgJppdFnLWY31J?usp=drive_link" target="_blank" class="text-blue-600 hover:underline text-sm">[View Guides]</a> <span class="status status-info normal-case">Updated: 2025-10-21</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded-lg overflow-hidden mb-4">
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 2: Centralization & Visibility <span class="text-sm text-gray-500 font-sans">(Q1 - Q2 2026)</span></h3>
+                            <span class="status status-pending ml-3">Pending</span>
+                        </div>
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Key Initiatives</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Unified Data Connector Development.</li>
+                                    <li>Query and Reporting Solution Deployment.</li>
+                                    <li>Dashboards and KPIs Implementation.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Key Deliverables</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Query Solution Deployed. <a href="#" class="text-blue-600 hover:underline text-sm">[Access Tool]</a></li>
+                                    <li>Live Dashboards & KPIs. <a href="#" class="text-blue-600 hover:underline text-sm">[View Dashboard]</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border rounded-lg overflow-hidden">
+                        <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                            <h3 class="font-title text-lg font-bold">Phase 3: Evolution & Growth <span class="text-sm text-gray-500 font-sans">(Q3 2026+)</span></h3>
+                            <span class="status status-pending ml-3">Pending</span>
+                        </div>
+                        <div class="p-6 grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-800">Key Initiatives</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Business Intelligence Solution Evolution.</li>
+                                    <li>Innovation Projects (LedgerBot, Marketing Bots).</li>
+                                </ul>
+                            </div>
+                             <div>
+                                <h4 class="font-bold text-gray-800">Key Deliverables</h4>
+                                <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1">
+                                    <li>Roadmap for future BI modules (post-tax season).</li>
+                                    <li>Formal kick-off of innovation projects.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>`,
+                admin: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Administration & Logistics</h2>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Personnel:</strong> CTO (Miguel Vargas), Office Manager (Nathalie Velasquez), Department Heads & Staff.</li>
+                        <li><strong>Tools:</strong> Karbon, Proseries, Square, ADP, Accountants World, QuickBooks, etc.</li>
+                        <li><strong>Budget:</strong> CTO contract, potential software licenses, training materials.</li>
+                        <li><strong>Support Needs:</strong> Cooperation from all department leads, dedicated project time for key staff.</li>
+                    </ul>`,
+                communication: `
+                    <h2 class="font-title text-3xl font-bold text-gray-800 mb-6">Communication</h2>
+                     <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Overall Project Lead:</strong> CTO - Miguel Vargas.</li>
+                        <li><strong>Executive Oversight:</strong> Office Manager -> Leadership Team.</li>
+                        <li><strong>Cadence:</strong> Weekly CTO progress meetings, Monthly all-staff updates, Quarterly executive reviews.</li>
+                        <li><strong>Reporting:</strong> Centralized reporting in Karbon project dashboards and this SMEAC Dashboard.</li>
+                    </ul>`
+            }
+        };
+
+        // ===================================================================================
+        // DASHBOARD LOGIC - DO NOT MODIFY UNLESS NECESSARY
+        // ===================================================================================
+        const versionSelect = document.getElementById('version-select');
+        const lastUpdatedEl = document.getElementById('last-updated');
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        const contentMap = {
+            situation: document.getElementById('situation-content'),
+            mission: document.getElementById('mission-content'),
+            execution: document.getElementById('execution-content'),
+            admin: document.getElementById('admin-content'),
+            communication: document.getElementById('communication-content'),
+        };
+
+        function renderVersion(version) {
+            const data = smeacData[version];
+            if (!data) return;
+
+            contentMap.situation.innerHTML = data.situation;
+            contentMap.mission.innerHTML = data.mission;
+            contentMap.execution.innerHTML = data.execution;
+            contentMap.admin.innerHTML = data.admin;
+            contentMap.communication.innerHTML = data.communication;
+
+            lastUpdatedEl.textContent = `(Updated: ${data.lastUpdated})`;
+        }
+
+        function populateVersionSelector() {
+            const versions = Object.keys(smeacData).reverse();
+            versions.forEach(version => {
+                const option = document.createElement('option');
+                option.value = version;
+                option.textContent = version;
+                versionSelect.appendChild(option);
+            });
+        }
+        
+        function changeTab(tabId) {
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('onclick').includes(tabId)) {
+                    tab.classList.add('active');
+                }
+            });
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabId}-content`) {
+                    content.classList.add('active');
+                }
+            });
+        }
+
+        versionSelect.addEventListener('change', (e) => {
+            renderVersion(e.target.value);
+        });
+
+        // Initialization
+        populateVersionSelector();
+        renderVersion(versionSelect.value);
+        changeTab('execution');
+
+    </script>
+</body>
+</html>
