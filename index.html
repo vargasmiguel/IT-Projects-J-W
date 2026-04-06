@@ -787,7 +787,7 @@
         <div class="border rounded-xl overflow-hidden mb-12 shadow-sm bg-emerald-50 border-emerald-200">
             <div class="p-5 border-b flex justify-between items-center bg-white/50">
                 <h3 class="font-title text-xl font-bold text-emerald-900 uppercase tracking-tight">Phase 2: Centralization, Visibility & Tax Season Support (Q1 - Q2 2026)</h3>
-                <span class="text-[10px] font-bold opacity-60 uppercase">63 Activities logged</span>
+                <span class="text-[10px] font-bold opacity-60 uppercase">67 Activities logged</span>
             </div>
             <div class="p-6 bg-white/80">
         
@@ -2085,11 +2085,103 @@
                         <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Advanced System Resilience: Mitigated the high-risk fallout of data corruption originated at the managerial report level. This operation required extensive technical man-hours to reconstruct data lineage without original CSV logs. It highlights that even minor misalignments in bulk data processing at high levels can trigger massive technical debt, necessitating senior-level intervention to ensure 100% billing accuracy and prevent legal-compliance failures.</p>
                     </div>
                 </div>
+                </div></div>
+            <div class="mb-12 last:mb-0 p-4 rounded-lg bg-white border-gray-200 shadow-sm relative">
+                <div class="flex items-center mb-6 border-b border-gray-100 pb-2">
+                    <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest">Advanced Data Analytics & Reporting</h4>
+                     
+                </div>
+                <div class="space-y-8">
+            
+                <div class="flex items-start group">
+                    <div class="w-24 flex-shrink-0 pt-1">
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Mar 13 - 19</span>
+                    </div>
+                    <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <div class="flex items-center flex-wrap gap-1">
+                                <p class="text-sm font-bold text-gray-900 leading-snug">Investigated and resolved the inability to track new clients through Karbon API (due to LastModified date limitations) and Square (due to profile duplication and multi-family appointments). Developed a workaround by reverse-engineering ProSeries reports, isolating the "Transfer Log" and identifying clients created from scratch versus those transferred from previous years. Finalized a report identifying 418 new clients for 1040 and 1120 forms.</p>
+                                
+                            </div>
+                            <span class="status status-done text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">Done</span>
+                        </div>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Data Governance & RPA Workaround: Overcame API architectural limitations in Karbon and Square by implementing a secondary data validation layer within ProSeries. This ensured the accuracy of growth metrics and marketing ROI.</p>
+                    </div>
+                </div>
+                </div></div>
+            <div class="mb-12 last:mb-0 p-4 rounded-lg bg-white border-gray-200 shadow-sm relative">
+                <div class="flex items-center mb-6 border-b border-gray-100 pb-2">
+                    <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest">System Integration & API Optimization</h4>
+                     
+                </div>
+                <div class="space-y-8">
+            
+                <div class="flex items-start group">
+                    <div class="w-24 flex-shrink-0 pt-1">
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Mar 19 - 23</span>
+                    </div>
+                    <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <div class="flex items-center flex-wrap gap-1">
+                                <p class="text-sm font-bold text-gray-900 leading-snug">Diagnosed and patched a critical data mapping failure in the MEGA - SquareUp API integration. Identified that client records were appearing as "Unknown" due to non-standard data entry in Square (Quick Creation/Single Field Name entries). Reconfigured the bot's parsing logic within MEGA to handle three distinct naming conventions: "Given Name" (Quick Entry), Split Name (First/Middle/Last), and "Company Name" for entity-based records.</p>
+                                
+                            </div>
+                            <span class="status status-done text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">Done</span>
+                        </div>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Interoperability & Data Integrity: Resolved an API parsing conflict to ensure seamless data flow between payment processing and the management platform. By implementing multi-method validation logic, I prevented malformed data from corrupting the database and eliminated "Unknown" identifiers.</p>
+                    </div>
+                </div>
+                </div></div>
+            <div class="mb-12 last:mb-0 p-4 rounded-lg bg-white border-gray-200 shadow-sm relative">
+                <div class="flex items-center mb-6 border-b border-gray-100 pb-2">
+                    <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest">Data Governance & AI Security Policy</h4>
+                     
+                </div>
+                <div class="space-y-8">
+            
+                <div class="flex items-start group">
+                    <div class="w-24 flex-shrink-0 pt-1">
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Mar 25</span>
+                    </div>
+                    <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <div class="flex items-center flex-wrap gap-1">
+                                <p class="text-sm font-bold text-gray-900 leading-snug">Defined and deployed a corporate AI Security Policy following a consultation with Christian regarding the leakage of privileged client information (SSN, Bank Accounts). Conducted a technical audit of the privacy clauses in Google Workspace for Education/Business (Gemini) versus Public LLMs (ChatGPT, Perplexity, Claude). Formulated and distributed a firm-wide directive establishing Gemini and TaxGPT as the only authorized tools, specifically enforcing the use of the @jw-accounting.com domain to leverage Enterprise-grade data protection.</p>
+                                
+                            </div>
+                            <span class="status status-done text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">Done</span>
+                        </div>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Risk Mitigation & Data Sovereignty: Established a strategic framework to prevent unauthorized data training and potential leaks. By distinguishing between "Free Tier" vulnerabilities and Enterprise-level encryption, I secured the firm’s intellectual property and client confidentiality under international data protection standards.</p>
+                    </div>
+                </div>
+                </div></div>
+            <div class="mb-12 last:mb-0 p-4 rounded-lg bg-white border-gray-200 shadow-sm relative">
+                <div class="flex items-center mb-6 border-b border-gray-100 pb-2">
+                    <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest">Technical Support & System Troubleshooting</h4>
+                     <a href="Link" target="_blank" class="text-[10px] bg-blue-600 text-white py-1.5 px-3 rounded hover:bg-blue-700 transition-all ml-4 normal-case font-bold shadow-sm inline-flex items-center">View Docs <span class="ml-1">→</span></a>
+                </div>
+                <div class="space-y-8">
+            
+                <div class="flex items-start group">
+                    <div class="w-24 flex-shrink-0 pt-1">
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Apr 6</span>
+                    </div>
+                    <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <div class="flex items-center flex-wrap gap-1">
+                                <p class="text-sm font-bold text-gray-900 leading-snug">Stakeholder Support (Daniela Moncada): Critical recovery of the Tax Return for "Escobar, Juan Pablo & Vitanzo Janet" in ProSeries 2024. Performed a forensic audit of local cache files to resolve a naming conflict and synchronization failure. Identified the most recent data state by comparing modification timestamps between redundant cache files (Old Name vs. New Name). Executed a manual file-name rollback to re-establish database handshaking with ProSeries 24, enabling the file to correctly status as "Marked for EF" in the EF Center for processing.</p>
+                                
+                            </div>
+                            <span class="status status-done text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">Done</span>
+                        </div>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">System Resilience & Cache Governance: Resolved a critical data-visibility gap that prevented the tax preparer from accessing 2024 payment records. By bypassing standard transfer protocols and performing manual cache-level reconciliation, I prevented potential data loss and ensured the firm’s electronic filing (EF) continuity during a time-sensitive period.</p>
+                    </div>
+                </div>
                 </div></div></div></div>
         <div class="border rounded-xl overflow-hidden mb-12 shadow-sm bg-slate-50 border-slate-200">
             <div class="p-5 border-b flex justify-between items-center bg-white/50">
                 <h3 class="font-title text-xl font-bold text-slate-800 uppercase tracking-tight">Phase 3: Evolution & Growth (Q2 - Q3 2026+)</h3>
-                <span class="text-[10px] font-bold opacity-60 uppercase">8 Activities logged</span>
+                <span class="text-[10px] font-bold opacity-60 uppercase">9 Activities logged</span>
             </div>
             <div class="p-6 bg-white/80">
         
@@ -2180,7 +2272,7 @@
             
                 <div class="flex items-start group">
                     <div class="w-24 flex-shrink-0 pt-1">
-                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Mar 9 - Ongoing</span>
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Mar 9 - Apr 3</span>
                     </div>
                     <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
                         <div class="flex justify-between items-start mb-1">
@@ -2190,7 +2282,23 @@
                             </div>
                             <span class="status status-info text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">In Progress</span>
                         </div>
-                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Interoperability & Advanced RBAC: Solving a critical data security gap by filtering sensitive firm-wide revenue data. The system enables General Management (Nathaly) to pivot between global metrics and individual performance views, providing high-fidelity oversight while ensuring staff only access authorized, acoted data.</p>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">Interoperability & Advanced RBAC: Solving a critical data security gap by filtering sensitive firm-wide revenue data. The system enables General Management (Nathalie) to pivot between global metrics and individual performance views, providing high-fidelity oversight while ensuring staff only access authorized, acoted data.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start group">
+                    <div class="w-24 flex-shrink-0 pt-1">
+                        <span class="text-xs font-bold text-gray-800 font-mono tracking-tighter">Apr 3 - Future</span>
+                    </div>
+                    <div class="flex-grow pb-6 border-b border-gray-100 group-last:border-0 pl-6 border-l-2 border-gray-50 group-hover:border-blue-300 transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <div class="flex items-center flex-wrap gap-1">
+                                <p class="text-sm font-bold text-gray-900 leading-snug">Proposal for Advanced Data Restructuring: Technical roadmap to transition from simple revenue tracking to granular volume/quantity analytics. Includes the development of new visualizations and a mandatory architectural shift: associating every payment with a specific Invoice Code to resolve record inflation caused by partial payments. The proposal includes a feasibility study for a legacy-data matching protocol to align historical payments with old invoices and expanding data schemas to capture specific line items beyond general department categories.</p>
+                                
+                            </div>
+                            <span class="status status-pending text-[11px] py-1 px-3 ml-4 flex-shrink-0 font-black uppercase shadow-sm">Pending</span>
+                        </div>
+                        <p class="text-xs text-gray-500 italic leading-relaxed mt-1">System Resilience & Scalability: Engineering a solution for the "Partial Payment Multiplicity" issue. By restructuring the data schema to be Invoice-centric rather than Transaction-centric, we eliminate data noise and enable precise KPI tracking. This is a prerequisite for moving from basic BI to automated financial forecasting and granular performance auditing.</p>
                     </div>
                 </div>
                 </div></div>
